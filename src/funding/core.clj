@@ -34,14 +34,21 @@
 (defn make-pretty-row
   "Create a formatted table row string from any list of numbers"
   [numbers]
-  (apply str (map #(format "%4d" %) numbers)))
+  (apply str (map #(format "%5d" %) numbers)))
 
 (defn make-pretty-header
   "Make a table header string from any list of numbers"
   [numbers]
-  (str "    " (make-pretty-row numbers)))
+  (str "     " (make-pretty-row numbers)))
 
-
+(defn print-table
+  "Print a multiplication table for n primes"
+  [n]
+  (let [primes (sieve n)
+        rows (make-table-rows primes)]
+    (println (make-pretty-header primes))
+    (doall
+      (map #(println (make-pretty-row %)) rows))))
 
 (def cli-options
   ;; An option with a required argument
@@ -55,7 +62,7 @@
         size (get-in options [:options :size])]
     #_(println options)
     (println (str "Printing " size " x " size " table of primes"))
-    ))
+    (print-table size)))
 
 
 

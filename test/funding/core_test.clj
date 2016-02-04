@@ -34,14 +34,14 @@
 
 (deftest pretty-row-test
   (testing "make-pretty-row should return the formatted output string for any row"
-    (is (= (f/make-pretty-row (first (f/make-table-rows (f/sieve 2)))) "   2   4   6"))
-    (is (= (f/make-pretty-row (first (f/make-table-rows (f/sieve 5)))) "   2   4   6  10  14  22"))
-    (is (= (f/make-pretty-row (last (f/make-table-rows (f/sieve 10)))) "  29  58  87 145 203 319 377 493 551 667 841" ))))
+    (is (= (f/make-pretty-row (first (f/make-table-rows (f/sieve 2)))) "    2    4    6"))
+    (is (= (f/make-pretty-row (first (f/make-table-rows (f/sieve 5)))) "    2    4    6   10   14   22"))
+    (is (= (f/make-pretty-row (last (f/make-table-rows (f/sieve 10)))) "   29   58   87  145  203  319  377  493  551  667  841" ))))
 
 (deftest table-header-test
   (testing "table header should return the list of primes with a prepended nil"
-    (is (= (f/make-pretty-header (f/sieve 0)) "    "))
-    (is (= (f/make-pretty-header (f/sieve 1)) "       2"))
-    (is (= (f/make-pretty-header (f/sieve 2)) "       2   3"))
-    (is (= (f/make-pretty-header (f/sieve 10)) "       2   3   5   7  11  13  17  19  23  29"))))
+    (is (= (f/make-pretty-header (f/sieve 0)) "     "))
+    (is (= (f/make-pretty-header (f/sieve 1)) "         2"))
+    (is (= (f/make-pretty-header (f/sieve 2)) "         2    3"))
+    (is (= (f/make-pretty-header (f/sieve 10)) "         2    3    5    7   11   13   17   19   23   29"))))
 
