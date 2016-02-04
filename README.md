@@ -18,7 +18,7 @@ You can also build the project with `lein uberjar`, and then run the program via
 
 ## Options
 
-The program prints the output for the first 10 primes by default, as requested. You can use the `-s` or `--SIZE` flags to specify a table of any size. Formatting breaks down for tables larger than 25 x 25, but that could easily be fixed if desired. 
+The program prints the output for the first 10 primes by default, as requested. You can use the `-s` or `--SIZE` flags to specify a table of any size: `lein run -s 6` will show you the multiplication table for the first 6 primes. Formatting currently breaks down for tables larger than 25 x 25, but that could easily be fixed. 
 
 ## Answers to the questions posed in the original coding challenge
 
