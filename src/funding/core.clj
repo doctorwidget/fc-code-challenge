@@ -9,10 +9,8 @@
   (let [row-val (nth values n)]
     (conj (map #(* row-val %) values) row-val)))
 
-
-
 (defn sieve
-  "Find primes using sieve of Eratosthenes"
+  "Find primes using Sieve of Eratosthenes"
   [n]
   (cond
     (< n 1) '()
@@ -26,6 +24,8 @@
                     (some #(if (> % x) %) survivors)    ;; x for next recur 
                     (filter #(> (mod % x) 0) survivors) ;; survivors for next recur
                     (conj primes x)))))))                ;; primes for next recur
+
+
 
 
 (def cli-options
