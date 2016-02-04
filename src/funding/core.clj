@@ -11,6 +11,22 @@
 
 
 
+(defn sieve
+  "Find primes using sieve of Eratosthenes"
+  [n]
+  (let [ceiling (+ 4 (* (Math/log n) n) (* n (Math/log (Math/log n)))) 
+        candidates (range 2 (Math/floor ceiling))]
+    (loop [x 2 survivors candidates primes []]
+      (if (or (nil? x) (> x (last candidates)))     
+        (take n primes)         ;; base case: take n from the proven primes
+        (recur
+         (some #(if (> % x) %) survivors)    ;; x for next recur 
+         (filter #(> (mod % x) 0) survivors) ;; survivors for next recur
+         (conj primes x))))))                ;; primes for next recur
+
+
+
+
 (def cli-options
   ;; An option with a required argument
   [["-s" "--size SIZE" "Size of grid"
