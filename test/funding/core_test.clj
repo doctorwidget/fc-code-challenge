@@ -25,3 +25,17 @@
     (is (= (f/sieve 15) '(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47)))
     (is (= (last (f/sieve 100)) 541))))
 
+(deftest table-rows-test
+  (testing "table-rows should return list of lists for any table size n"
+    (is (= (f/make-table-rows 0) '()))
+    (is (= (f/make-table-rows 1) '((2 4))))
+    (is (= (f/make-table-rows 2) '((2 4 6) (3 6 9))))
+    (is (= (last (f/make-table-rows 10)) '(29 58 87 145 203 319 377 493 551 667 841)))))
+
+(deftest table-header-test
+  (testing "table header should return the list of primes with a prepended nil"
+    (is (= (f/make-table-header (f/sieve 0)) "    "))
+    (is (= (f/make-table-header (f/sieve 1)) "       2"))
+    (is (= (f/make-table-header (f/sieve 2)) "       2   3"))
+    (is (= (f/make-table-header (f/sieve 10)) "       2   3   5   7  11  13  17  19  23  29"))))
+

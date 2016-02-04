@@ -25,8 +25,17 @@
                     (filter #(> (mod % x) 0) survivors) ;; survivors for next recur
                     (conj primes x)))))))                ;; primes for next recur
 
+(defn make-table-rows
+  "Make the table of primes based for any table size n."
+  [n]
+  (let [primes (sieve n)]
+    (map #(make-row % primes) (range n))))
 
-
+(defn make-table-header
+  "Make the table header for any table size n."
+  [primes]
+  (let [cells (map #(format "%4d" %) primes)]
+    (apply str (conj cells "    "))))
 
 (def cli-options
   ;; An option with a required argument
