@@ -1,36 +1,45 @@
 # lending
 
-FIXME: description
+Code challenge for Funding Circle: 
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Fork this repo into the directory of your choosing.
 
 ## Usage
 
-FIXME: explanation
+Run the program with `lein run`
 
-    $ java -jar lending-0.1.0-standalone.jar [args]
+Run the tests with `lein tests`
+
+You can also build the project with `lein uberjar`, and then run the program via `java -jar path/to/standalone-jar-file.jar`.
+
+
 
 ## Options
 
-FIXME: listing of options this app accepts.
+The program prints the output for the first 10 primes by default, as requested. You can use the `-s` or `--SIZE` flags to specify a table of any size. Formatting breaks down for tables larger than 25 x 25, but that could easily be fixed if desired. 
 
-## Examples
+## Answers to the questions posed in the original coding challenge
 
-...
+**Consider complexity. How fast does your code run? How does it scale?**
 
-### Bugs
+My solution is based on the Sieve of Eratosthenes; a faster algorithm would certainly scale better. As noted above, the formatting for the table would need to be tweaked for larger outputs.
 
-...
+**Consider cases where we want N primes**
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+That's part of the solution; you can use the `-s` or `--SIZE` flags to get whatever output you want. I did it this way because it made sense to me; anything that hard-coded 10 primes seemed like an unthinkably ugly hack. Since I was already using an arbitrary n, it made sense to expose it to the user via `clojure.tools.cli`.
 
-## License
 
-Copyright © 2016 FIXME
+**Do not use the Prime class from stdlib (write your own code)**
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Check!
+
+
+**Write tests. Try to demonstrate TDD/BDD**
+
+As noted above, tests are accessible via `lein test`. The tests in `test/funding/core_test.clj` appear in the chronological order that I wrote them in. This is normally how I develop anything and everything; incremental changes each associated with new tests. That's the only way I can sleep at night after writing new code.
+
+
+
+
