@@ -25,17 +25,23 @@
                     (filter #(> (mod % x) 0) survivors) ;; survivors for next recur
                     (conj primes x)))))))                ;; primes for next recur
 
-(defn make-table-rows
-  "Make the table of primes based for any table size n."
-  [n]
-  (let [primes (sieve n)]
-    (map #(make-row % primes) (range n))))
 
-(defn make-table-header
-  "Make the table header for any table size n."
+(defn make-table-rows
+  "Make the table rows, given any set of primes."
   [primes]
-  (let [cells (map #(format "%4d" %) primes)]
-    (apply str (conj cells "    "))))
+  (map #(make-row % primes) (range (count primes))))
+
+(defn make-pretty-row
+  "Create a formatted table row string from any list of numbers"
+  [numbers]
+  (apply str (map #(format "%4d" %) numbers)))
+
+(defn make-pretty-header
+  "Make a table header string from any list of numbers"
+  [numbers]
+  (str "    " (make-pretty-row numbers)))
+
+
 
 (def cli-options
   ;; An option with a required argument
