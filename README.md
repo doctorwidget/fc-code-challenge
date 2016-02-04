@@ -28,7 +28,7 @@ My solution is based on the Sieve of Eratosthenes; a faster algorithm would cert
 
 **Consider cases where we want N primes**
 
-That's part of the solution; you can use the `-s` or `--SIZE` flags to get whatever output you want. I did it this way because it made sense to me; anything that hard-coded 10 primes seemed like an unthinkably ugly hack. Since I was already using an arbitrary n, it made sense to expose it to the user via `clojure.tools.cli`.
+That's part of the solution; you can use the `-s` or `--SIZE` flags to get whatever output you want. That approach was the only way that made sense to me; hard-coding for 10 primes would be an unthinkably ugly hack. Since I was already using an arbitrary n, it made sense to expose it to the user via `clojure.tools.cli`.
 
 
 **Do not use the Prime class from stdlib (write your own code)**
